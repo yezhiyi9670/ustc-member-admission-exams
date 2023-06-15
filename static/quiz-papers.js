@@ -3,8 +3,8 @@
 	window.Papers = new (function() {
 		this.available_list = function() {
 			return [
-				{name: "近代史纲要 2022S 第一部分", id: "modern-history-2022s-vol1"},
-				{name: "近代史纲要 2022S 第二部分", id: "modern-history-2022s-vol2"},
+				{name: "近代史纲要 2023S 第一部分", id: "modern-history-2022s-vol1"},
+				{name: "近代史纲要 2023S 第二部分", id: "modern-history-2022s-vol2"},
 				{name: "思想政治 2022A 第一部分", id: "politics2022a-vol1"},
 				{name: "思想政治 2022A 第二部分", id: "politics2022a-vol2"},
 				{name: "处分条例（官方题库 2022）", id: "rules"},
