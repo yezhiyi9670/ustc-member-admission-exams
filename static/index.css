@@ -1,0 +1,237 @@
+body {
+	font-family: sans-serif;
+	overscroll-behavior: contain;
+}
+.wcl-article-container {
+	max-width: 800px;
+	width: 100%;
+	margin: 16px auto;
+	padding: 0 8px;
+	padding-bottom: 16px;
+	box-sizing: border-box;
+}
+.wcl-article-container h1 {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+	padding-bottom: 16px;
+}
+[wcl-state] {
+	display: none;
+}
+a {
+	text-decoration: none;
+}
+a.redlink {
+	color: red;
+}
+
+.problem-tile {
+	display: inline-block;
+	white-space: nowrap;
+	color: #121212;
+	font-size: .9em;
+	padding: .3em .5em;
+	margin: .3em;
+	background-color: #DDD;
+	user-select: none;
+}
+.problem-ordinal {
+	opacity: .4;
+}
+.problem-tile-correct {
+	background-color: #00E676;
+	color: #1B5E20;
+}
+.problem-tile-checkonly {
+	background-color: #B3E5FC;
+	color: #01579B;
+}
+.problem-tile-incorrect {
+	background-color: #E64A19;
+	color: #FFCCBC;
+}
+
+.wcl-spacer::before {
+	font-size: 1em;
+	content: ' ';
+}
+
+.tile-button {
+	display: inline-block;
+	white-space: nowrap;
+	color: #000;
+	font-size: 1em;
+	padding: .3em .5em;
+	margin: .2em;
+	background-color: #DDD;
+	user-select: none;
+}
+
+.tile-button-void {
+	color: #000;
+	background-color: transparent;
+}
+
+.quiz-content-desc,
+.quiz-content-extras>p {
+	line-height: 150%;
+}
+
+.quiz-choice {
+	margin-bottom: 16px;
+	position: relative;
+	background-color: #E0E0E0;
+	display: block;
+	font-size: 1.0em;
+	color: black;
+}
+.quiz-choice-id {
+	vertical-align: middle;
+}
+.quiz-choice-icon {
+	position: absolute;
+	padding: 6px;
+	left: 0;
+	top: 0;
+	box-sizing: border-box;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	font-weight: 700;
+	outline: none;
+}
+.quiz-choice-text {
+	background-color: #EEEEEE;
+	margin-left: 40px;
+	padding: 8px 12px;
+}
+
+.quiz-choice.quiz-choice-correct {
+	background-color: #81C784;
+}
+.quiz-choice-correct .quiz-choice-text {
+	background-color: #A5D6A7;
+}
+.quiz-choice.quiz-choice-incorrect {
+	background-color: #E64A19;
+	color: white;
+}
+.quiz-choice-incorrect .quiz-choice-text {
+	background-color: #FF5722;
+}
+.quiz-choice.quiz-choice-modify {
+	background-color: #81D4FA;
+}
+.quiz-choice-modify .quiz-choice-text {
+	background-color: #B3E5FC;
+}
+.quiz-choice.quiz-choice-select {
+	background-color: #80CBC4;
+}
+.quiz-choice-select .quiz-choice-text {
+	background-color: #B2DFDB;
+}
+h1.appbar {
+	position: fixed;
+	font-size: 20px;
+	left: 0;
+	right: 0;
+	margin: 0;
+	top: 0;
+	padding: 0;
+	background-color: #DFDFDF;
+	color: black;
+	border: none;
+	white-space: nowrap;
+	font-weight: 400;
+	z-index: 10;
+	height: 58px;
+}
+h1.appbar .tile-button {
+	font-size: 14px;
+	padding: 5px;
+	margin: 0;
+	margin-right: 3px;
+	background: transparent;
+	color: black;
+	margin-bottom: -114514px;
+	transform: translateY(-2px);
+	border: 1px solid #00000033;
+}
+.appbar-inner {
+	max-width: 816px;
+	margin: 0 auto;
+	padding: 16px;
+	box-sizing: border-box;
+}
+body {
+	padding-top: 58px;
+}
+@media(max-width: 640px) {
+	body {
+		font-size: 15px;
+		padding-top: 48px;
+	}
+	.quiz-controls-top {
+		display: none;
+	}
+	.quiz-controls-bottom {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0;
+		padding: 8px;
+		/* padding-bottom: 32px; */
+		border-top: 1px solid #00000022;
+		background-color: white;
+	}
+	.quiz-page-problem {
+		padding-bottom: 22px;
+	}
+	p {
+		margin: 0.75em 0;
+	}
+	.quiz-choice {
+		margin-bottom: 12px;
+	}
+	.quiz-choice-icon {
+		width: 36px;
+		height: 36px;
+		padding: 7px;
+	}
+	.quiz-stats {
+		position: fixed;
+		border-bottom: 1px solid #00000022;
+		background-color: white;
+		top: 48px;
+		left: 0;
+		right: 0;
+		margin: 0;
+		padding: 7px 16px;
+		white-space: nowrap;
+		z-index: 1;
+		font-size: 13px;
+	}
+	.has-quiz-stats {
+		padding-top: 12px;
+	}
+	.quiz-stats>br {
+		display: none;
+	}
+	.quiz-content-header {
+		display: none;
+	}
+	h1.appbar {
+		font-size: 16px;
+		height: 48px;
+	}
+	h1.appbar .tile-button {
+		font-size: 12px;
+		padding: 3px;
+		margin-right: 3px;
+		transform: translateY(-1px);
+	}
+	.appbar-inner {
+		padding: 13px;
+	}
+}

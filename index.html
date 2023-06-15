@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=none">
+	<title>在线练习</title>
+	<link rel="stylesheet" href="./static/index.css?k=3" />
+</head>
+<body>
+	<div class="wcl-article-container">
+		<h1 class="appbar">
+			<div class="appbar-inner">
+				<span class="quiz-states" wcl-state="home">题库在线练习</span>
+				<span class="quiz-states" wcl-state="fetching">题库在线练习</span>
+				<span class="quiz-states" wcl-state="summary">
+					<a href="javascript:;" onclick="MainPage.backToMain()" class="tile-button">&lsaquo; 主页</a>
+					概览：<span class="sess-name"></span>
+				</span>
+				<span class="quiz-states" wcl-state="problem">
+					<a href="javascript:;" onclick="MainPage.backToSummary()" class="tile-button">&lsaquo; 概览</a>
+					<span class="sess-name"></span> - 问题 #<span class="id-current">434</span> [<span class="quiz-content-type">V</span>]
+				</span>
+			</div>
+		</h1>
+		
+		<div class="quiz-states" wcl-state="home">
+			<p style="
+				border: 1px solid #0002;
+				background: #DCEDC8;
+				padding: 8px 12px;
+			">键盘操作支持：字母 - 选择选项，Z - 清除作答，Space - 检查答案，Left/Right - 翻页。</p>
+			<h2>答题会话</h2>
+			<div class="quiz-home-sessions" wcl-state="empty">
+				<p>尚未创建任何会话，请从下面选择试卷开始答题。</p>
+			</div>
+			<div class="quiz-home-sessions quiz-sessions-list" wcl-state="sessions"></div>
+			<p>目前未实现数据导出功能。请在同一设备的同一浏览器上进行练习，切勿清空数据。</p>
+			<h2>试卷</h2>
+			<p>选择试卷以创建答题会话并开始答题。注意若试卷更新，已创建的会话不会更新。</p>
+			<div class="quiz-papers-list">
+			</div>
+			<h2>声明</h2>
+			<p>此网页非中国科学技术大学官方页面，与中国科学技术大学没有任何利益关系。</p>
+			<p>此网页使用纯前端模式工作，不会收集你的个人信息及使用/答题情况。数据存储于您的设备。</p>
+		</div>
+		<div class="quiz-states" wcl-state="fetching">
+			正在拉取试卷内容...
+		</div>
+		<div class="quiz-states has-quiz-stats" wcl-state="summary">
+			<p>请不要在不同浏览器标签页中多开同一个会话。这可能导致错乱。</p>
+			<h2>答题概要</h2>
+			<p class="quiz-stats">共 <span class="num-total">514</span> 题，已作答 <span class="num-done">114</span> 题，答错 <span class="num-incorrect">81</span> 题。正确率 <span class="percent-correct"></span>%。</p>
+			<p class="quiz-btn-continue"><a href="javascript:;" onclick="MainPage.continueProblems()">继续作答</a></p>
+			<p><a href="javascript:;" onclick="MainPage.renameSession()">重命名</a> · <a href="javascript:;" class="redlink" onclick="MainPage.deleteSession()">删除会话</a></p>
+			<h2>试题明细</h2>
+			<details>
+				<summary>图例</summary>
+				<a class="problem-tile" href="javascript:;"><span class="problem-ordinal">序号</span><span class="wcl-spacer"></span><span class="problem-id">实际题号</span></a>
+				<a class="problem-tile problem-tile-correct" href="javascript:;">答对</a>
+				<a class="problem-tile problem-tile-incorrect" href="javascript:;">答错</a>
+				<a class="problem-tile" href="javascript:;">未作答</a>
+				<a class="problem-tile problem-tile-checkonly" href="javascript:;">显示答案但未作答</a>
+			</details>
+			<p>点击标签即可查看或作答试题。</p>
+			<p class="quiz-problems-summary"></p>
+			<p class="quiz-btn-reinforce"><a href="javascript:;" onclick="MainPage.createReinforcement()">创建错题强化练习</a></p>
+		</div>
+		<div class="quiz-states quiz-page-problem has-quiz-stats" wcl-state="problem">
+			<p class="quiz-stats">共 <span class="num-total">514</span> 题，已作答 <span class="num-done">114</span> 题，答错 <span class="num-incorrect">81</span> 题。正确率 <span class="percent-correct"></span>%。</p>
+			<p class="quiz-controls quiz-controls-top">
+				<span class="tile-button"><span class="num-current">114</span> / <span class="num-total">514</span></span>
+				<span style="float:right">
+					<a class="tile-button quiz-control-prev" href="javascript:;" onclick="MainPage.turnPrev()">&lsaquo; 上一题</a>
+					<a class="tile-button quiz-control-next" href="javascript:;" onclick="MainPage.turnNext()">下一题 &rsaquo;</a>
+				</span>
+			</p>
+			<h2 class="quiz-content-header">问题 #<span class="id-current">434</span> [<span class="quiz-content-type">V</span>]</h2>
+			<p class="quiz-content-desc"></p>
+			<div class="quiz-content-extras"></div>
+			<p class="quiz-blank-tips"><em>这是一道填空题。请先想好答案，然后点击下面的“检查答案”按钮，根据你的答案是否正确标记选项。</em></p>
+			<p class="quiz-blank-answer"><em>答案：<span class="quiz-blank-answer-field"></span></em></p>
+			<div class="quiz-choices"></div>
+			<p>
+				<a class="tile-button quiz-control-clear" href="javascript:;" onclick="MainPage.clearChoice()" style="margin:0">清除作答</a>
+				<a class="tile-button quiz-control-check" href="javascript:;" onclick="MainPage.checkAnswer()" style="margin-left:8px">检查答案</a>
+			</p>
+			<p class="quiz-controls quiz-controls-bottom">
+				<span class="tile-button"><span class="num-current">114</span> / <span class="num-total">514</span></span>
+				<span style="float:right">
+					<a class="tile-button quiz-control-prev" href="javascript:;" onclick="MainPage.turnPrev()">&lsaquo; 上一题</a>
+					<a class="tile-button quiz-control-next" href="javascript:;" onclick="MainPage.turnNext()">下一题 &rsaquo;</a>
+				</span>
+			</p>
+		</div>
+	</div>
+
+	<script src="./static/jquery.js"></script>
+	<script src="./static/wcl-storedata.js?k=3"></script>
+	<script src="./static/wcl-state.js"></script>
+	<script src="./static/quiz-papers.js?k=6"></script>
+	<script src="./static/quiz-session.js?k=6"></script>
+	<script src="./static/quiz-mainpage.js?k=10"></script>
+	<script src="./static/main.js?k=2"></script>
+	<script>
+		if(navigator.userAgent.indexOf(' QQ/') != -1) {
+			setTimeout(() => {
+				alert('此页面已知在 QQ 内置 Webview 中无法正常工作。即使能工作，也可能会丢失数据。' + "\n" + "请选择在常用的浏览器中打开。");
+			}, 100);
+		}
+	</script>
+</body>
+</html>
