@@ -446,7 +446,7 @@
 		this.clearChoice = function() {
 			let problem = this.currentSession.problems[this.currentIndex];
 
-			if(problem.studentAnswer === null) {
+			if(problem.studentAnswer === null && !problem.judged) {
 				return
 			}
 
