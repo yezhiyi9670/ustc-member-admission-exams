@@ -417,9 +417,11 @@
 					problem.studentAnswer = null;
 				}
 			} else {
+				const prevAnswered = problem.studentAnswer === null
+
 				problem.studentAnswer = choice;
 
-				if(!problem.judged) {
+				if(!prevAnswered || !problem.judged) {  // 避免上报改选的选项
 					const problemState = this.currentSession.problemState(problem)
 					if(problemState == 'correct') {
 						window.sendAnalyticsEvent('Answer correct')
