@@ -418,14 +418,17 @@
 				}
 			} else {
 				problem.studentAnswer = choice;
-				problem.judged = true;
 
-				const problemState = this.currentSession.problemState(problem)
-				if(problemState == 'correct') {
-					window.sendAnalyticsEvent('Answer correct')
-				} else if(problemState == 'incorrect') {
-					window.sendAnalyticsEvent('Answer incorrect')
+				if(!problem.judged) {
+					const problemState = this.currentSession.problemState(problem)
+					if(problemState == 'correct') {
+						window.sendAnalyticsEvent('Answer correct')
+					} else if(problemState == 'incorrect') {
+						window.sendAnalyticsEvent('Answer incorrect')
+					}
 				}
+
+				problem.judged = true;
 			}
 			
 			$.dethrottle(() => {
