@@ -420,7 +420,11 @@
 				problem.studentAnswer = choice;
 				problem.judged = true;
 
-				window.sendAnalyticsEvent('Answer problem')
+				if(this.currentSession.problemState(problem) == 'correct') {
+					window.sendAnalyticsEvent('Answer correct')
+				} else {
+					window.sendAnalyticsEvent('Answer incorrect')
+				}
 			}
 			
 			$.dethrottle(() => {
@@ -435,6 +439,11 @@
 		 */
 		this.clearChoice = function() {
 			let problem = this.currentSession.problems[this.currentIndex];
+
+			if(problem.studentAnswer === null) {
+				return
+			}
+
 			problem.studentAnswer = null;
 			problem.judged = false;
 			$.dethrottle(() => {
@@ -451,6 +460,11 @@
 		 */
 		this.checkAnswer = function() {
 			let problem = this.currentSession.problems[this.currentIndex];
+			
+			if(problem.judged) {
+				return
+			}
+			
 			problem.judged = true;
 			$.dethrottle(() => {
 				if(this.currentSession) {
@@ -463,7 +477,13 @@
 				$('html')[0].scrollTop = 114514;
 			}
 
-			window.sendAnalyticsEvent('Answer problem')
+			if(problem.type != 'blank') {
+				if(this.currentSession.problemState(problem) == 'correct') {
+					window.sendAnalyticsEvent('Answer correct')
+				} else {
+					window.sendAnalyticsEvent('Answer incorrect')
+				}
+			}
 		}
 		/**
 		 * 返回概览界面

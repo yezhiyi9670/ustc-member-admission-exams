@@ -42,7 +42,7 @@
 			</div>
 			<h2>声明</h2>
 			<p>此网页非中国科学技术大学官方页面，与中国科学技术大学没有任何利益关系。</p>
-			<p>此网页使用纯前端模式工作，仅会收集匿名化的浏览情况数据用于流量分析，不会上传你的答题情况，数据存储于您的设备。</p>
+			<p>此网页使用纯前端模式工作，仅会收集匿名化的浏览情况数据用于流量分析，不会上传你的答题数据，数据存储于您的设备。</p>
 		</div>
 		<div class="quiz-states" wcl-state="fetching">
 			正在拉取试卷内容...
@@ -100,7 +100,7 @@
 	<script src="./static/wcl-state.js"></script>
 	<script src="./static/quiz-papers.js?k=9"></script>
 	<script src="./static/quiz-session.js?k=6"></script>
-	<script src="./static/quiz-mainpage.js?k=11"></script>
+	<script src="./static/quiz-mainpage.js?k=15"></script>
 	<script src="./static/main.js?k=2"></script>
 	<script>
 		if(navigator.userAgent.indexOf(' QQ/') != -1) {
@@ -123,7 +123,8 @@
 		 * Create paper - 从试卷创建会话
 		 * Create exercise - 创建错题强化练习
 		 * Delete session - 删除会话
-		 * Answer problem - 检查答案
+		 * Answer correct - 回答正确
+		 * Answer incorrect - 回答不正确
 		 * Clear problem - 清除作答
 		 */
 		/**
