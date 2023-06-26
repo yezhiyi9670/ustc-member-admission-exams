@@ -420,9 +420,10 @@
 				problem.studentAnswer = choice;
 				problem.judged = true;
 
-				if(this.currentSession.problemState(problem) == 'correct') {
+				const problemState = this.currentSession.problemState(problem)
+				if(problemState == 'correct') {
 					window.sendAnalyticsEvent('Answer correct')
-				} else {
+				} else if(problemState == 'incorrect') {
 					window.sendAnalyticsEvent('Answer incorrect')
 				}
 			}
@@ -478,9 +479,10 @@
 			}
 
 			if(problem.type != 'blank') {
-				if(this.currentSession.problemState(problem) == 'correct') {
+				const problemState = this.currentSession.problemState(problem)
+				if(problemState == 'correct') {
 					window.sendAnalyticsEvent('Answer correct')
-				} else {
+				} else if(problemState == 'incorrect') {
 					window.sendAnalyticsEvent('Answer incorrect')
 				}
 			}
