@@ -417,9 +417,11 @@
 					problem.studentAnswer = null;
 				}
 			} else {
-				const prevAnswered = problem.studentAnswer !== null
+				const prevAnswered = problem.studentAnswer !== null;
+				const prevJudged = problem.judged;
 
 				problem.studentAnswer = choice;
+				problem.judged = true;
 
 				if(!prevAnswered || !problem.judged) {  // 避免上报改选的选项
 					const problemState = this.currentSession.problemState(problem)
@@ -429,8 +431,6 @@
 						window.sendAnalyticsEvent('Answer incorrect')
 					}
 				}
-
-				problem.judged = true;
 			}
 			
 			$.dethrottle(() => {
