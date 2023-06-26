@@ -100,7 +100,7 @@
 	<script src="./static/wcl-state.js"></script>
 	<script src="./static/quiz-papers.js?k=9"></script>
 	<script src="./static/quiz-session.js?k=6"></script>
-	<script src="./static/quiz-mainpage.js?k=10"></script>
+	<script src="./static/quiz-mainpage.js?k=11"></script>
 	<script src="./static/main.js?k=2"></script>
 	<script>
 		if(navigator.userAgent.indexOf(' QQ/') != -1) {
@@ -111,6 +111,29 @@
 	</script>
 
 	<!--TRAKING CODE PLEASE REMOVE-->
-	<script async src="https://analytics.sparks-lab.art/script.js" data-website-id="f8e59d53-c458-4b6c-893c-bab5fa87a1b0"></script>
+	<script
+		async
+		src="https://analytics.sparks-lab.art/script.js"
+		data-website-id="f8e59d53-c458-4b6c-893c-bab5fa87a1b0"
+		data-domains="wlexe.cf"
+	></script>
+	<script>
+		/**
+		 * Tracked:
+		 * Create paper - 从试卷创建会话
+		 * Create exercise - 创建错题强化练习
+		 * Delete session - 删除会话
+		 * Answer problem - 检查答案
+		 * Clear problem - 清除作答
+		 */
+		/**
+		 * The tracking function
+		 */
+		window.sendAnalyticsEvent = (name) => {
+			if(window.umami) {
+				window.umami.track(name)
+			}
+		}
+	</script>
 </body>
 </html>

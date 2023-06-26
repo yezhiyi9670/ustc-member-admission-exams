@@ -59,6 +59,8 @@
 			this.currentSession = new_sess;
 			$('.quiz-states').state('summary');
 			this.showSessionSummary();
+
+			window.sendAnalyticsEvent('Create paper')
 		}
 		/**
 		 * 创建错题强化练并打开
@@ -83,6 +85,8 @@
 			this.currentSession = new_sess;
 			$('.quiz-states').state('summary');
 			this.showSessionSummary();
+
+			window.sendAnalyticsEvent('Create exercise')
 		}
 
 		/**
@@ -140,6 +144,8 @@
 			this.currentSession = null;
 			$('.quiz-states').state('home');
 			this.showSessions();
+
+			window.sendAnalyticsEvent('Delete session')
 		}
 		/**
 		 * 重命名会话并刷新
@@ -413,6 +419,8 @@
 			} else {
 				problem.studentAnswer = choice;
 				problem.judged = true;
+
+				window.sendAnalyticsEvent('Answer problem')
 			}
 			
 			$.dethrottle(() => {
@@ -435,6 +443,8 @@
 				}
 			}, 500)();
 			this.renderProblemPage();
+
+			window.sendAnalyticsEvent('Clear problem')
 		}
 		/**
 		 * 检查答案
@@ -452,6 +462,8 @@
 			if(problem.type == 'blank') {
 				$('html')[0].scrollTop = 114514;
 			}
+
+			window.sendAnalyticsEvent('Answer problem')
 		}
 		/**
 		 * 返回概览界面
