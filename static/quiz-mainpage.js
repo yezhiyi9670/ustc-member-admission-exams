@@ -417,7 +417,7 @@
 					problem.studentAnswer = null;
 				}
 			} else {
-				const prevAnswered = problem.studentAnswer === null
+				const prevAnswered = problem.studentAnswer !== null
 
 				problem.studentAnswer = choice;
 
