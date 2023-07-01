@@ -38,7 +38,7 @@
 				return 'undone';
 			}
 			if(problem.type != 'blank') {
-				if(problem.studentAnswer == problem.answer) {
+				if(problem.studentAnswer == problem.answer.trim()) {
 					return 'correct';
 				}
 			} else {
