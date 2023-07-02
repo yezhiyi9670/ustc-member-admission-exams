@@ -348,7 +348,7 @@
 					choice
 				);
 				const handleKeyDown = (evt) => {
-					if(evt.key == id.toLowerCase() && choice.height() > 0) {
+					if(evt.key.toLowerCase() == id.toLowerCase() && !evt.ctrlKey && choice.height() > 0) {
 						choice.click()
 					}
 				}

@@ -18,16 +18,20 @@ $(() => {
 	}
 	addEventListener('keydown', (evt) => {
 		// console.log(evt.key)
+		if(evt.ctrlKey) {
+			if(evt.key.toLowerCase() == 's') {
+				evt.preventDefault()
+			}
+			return
+		}
 		if(evt.key == ' ') {
 			pressButton('.quiz-control-check')
 		} else if(evt.key == 'ArrowLeft') {
 			pressButton('.quiz-control-prev')
 		} else if(evt.key == 'ArrowRight') {
 			pressButton('.quiz-control-next')
-		} else if(evt.key == 'z') {
+		} else if(evt.key.toLowerCase() == 'z') {
 			pressButton('.quiz-control-clear')
-			evt.preventDefault()
-		} else if(evt.ctrlKey && evt.key == 's') {
 			evt.preventDefault()
 		}
 	})
