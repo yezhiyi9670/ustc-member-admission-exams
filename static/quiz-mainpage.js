@@ -46,8 +46,14 @@
 				return;
 			}
 			$('.quiz-states').state('fetching');
-			let paperData = await Papers.fetchData_async(id);
-			if(!paperData) {
+			let paperData = await (async () => {
+				try {
+					return await Papers.fetchData_async(id);
+				} catch(_err) {
+					return null
+				}
+			})()
+			if(!paperData || paperData.success == false) {
 				alert('获取试卷数据失败。');
 				$('.quiz-states').state('home');
 				return;

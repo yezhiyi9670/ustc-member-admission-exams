@@ -40,9 +40,13 @@
 			<p>选择试卷以创建答题会话并开始答题。注意若试卷更新，已创建的会话不会更新。</p>
 			<div class="quiz-papers-list">
 			</div>
+			<h2>获取源代码</h2>
+			<p>如果你需要离线使用或添加自己的题目集，请<a href="https://github.com/yezhiyi9670/ustc-member-admission-exams" target="_blank">下载网页的源代码</a>并自行进行相关操作。</p>
+			<p>网页为纯前端模式工作，但是<strong>不能</strong>通过在浏览器中直接打开 HTML 文件使用。你需要使用本地 Web 服务器。相对简单的方法是使用 <code>npm serve</code>，相关方法介绍见<a href="https://blog.csdn.net/sigmarising/article/details/117149642" target="_blank">此处</a>。</p>
 			<h2>声明</h2>
 			<p>此网页非中国科学技术大学官方页面，与中国科学技术大学没有任何利益关系。</p>
 			<p>此网页使用纯前端模式工作，仅会收集匿名化的浏览情况数据用于流量分析，不会上传你的答题数据，数据存储于您的设备。</p>
+			<p></p>
 		</div>
 		<div class="quiz-states" wcl-state="fetching">
 			正在拉取试卷内容...
@@ -106,7 +110,7 @@
 		if(navigator.userAgent.indexOf(' QQ/') != -1) {
 			setTimeout(() => {
 				alert('此页面已知在 QQ 内置 Webview 中无法正常工作。即使能工作，也可能会丢失数据。' + "\n" + "请选择在常用的浏览器中打开。");
-			}, 100);
+			}, 500);
 		}
 	</script>
 
